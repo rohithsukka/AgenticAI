@@ -8,7 +8,7 @@ from langgraph.graph.message import add_messages
 
 load_dotenv()
 
-llm = ChatGroq(model='qwen/qwen3-32b',
+llm = ChatGroq(model='qwen/qwen3.6-27b',
                reasoning_effort="none")
 
 
