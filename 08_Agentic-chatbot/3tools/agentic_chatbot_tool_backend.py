@@ -275,3 +275,23 @@ def get_all_threads():
         all_threads.add(ckpt.config['configurable']['thread_id'])
 
     return list(all_threads)
+
+
+from langchain_core.messages import HumanMessage
+
+config = {
+    "configurable": {
+        "thread_id": "thread-1"
+    }
+}
+
+for update in chatbot.stream(
+    {
+        "messages": [
+            HumanMessage(content="What is the weather in Hyderabad?")
+        ]
+    },
+    config=config,
+    stream_mode="updates",
+):
+    print(update)
